@@ -1,21 +1,17 @@
 # HexCoreExample
 
-**TODO: Add description**
+Play with hex_core
 
-## Installation
+## Example
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `hex_core_example` to your list of dependencies in `mix.exs`:
 
-```elixir
-def deps do
-  [
-    {:hex_core_example, "~> 0.1.0"}
-  ]
-end
-```
+    $ iex -S mix
+    iex> :inets.start() ; :ssl.start()
+    iex> config = :hex_core.default_config()
+    iex> options = [sort: :downloads]
+    iex> {:ok, {200, _, packages}} = :hex_api_package.search(config, "riak", options)
+    iex> Enum.map(packages, & &1["name"])
+    ["riak_pb", "riakc", ...]
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/hex_core_example](https://hexdocs.pm/hex_core_example).
-
+See https://github.com/hexpm/hex_core for more examples.
+_
